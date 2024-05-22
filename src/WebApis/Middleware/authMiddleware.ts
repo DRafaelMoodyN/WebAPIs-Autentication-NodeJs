@@ -21,7 +21,7 @@ export class AuthMidleware {
             if (!payload)
                 return res.status(401).json({ error: "Invalidate token" })
 
-            const user = UserModel.findById(payload.id)
+            const user = await UserModel.findById(payload.id).exec()
 
             if (!user)
                 return res.status(401).json({ error: "Invalidate token - user not found" })

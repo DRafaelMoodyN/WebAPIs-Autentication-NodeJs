@@ -22,6 +22,7 @@ export class AuthRoute {
         router.post("/login", controller.loginUser)
         router.post("/register", controller.registerUser)
         router.get("/list", middleware, controller.getUser)
+        router.get("/revalidar-token", middleware, controller.revalidateToken)
 
         return router
     }

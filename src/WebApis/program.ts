@@ -1,4 +1,5 @@
 import express, { Router } from "express"
+import cors from "cors"
 
 interface IOptions {
     port?: number,
@@ -17,8 +18,10 @@ export class Program {
     }
 
     async start() {
-        this._app.use(express.json())
+        this._app.use(cors())
         this._app.use(express.urlencoded({ extended: true }))
+        this._app.use(express.json())
+        
         this._app.use(this._route)
 
         this._app.listen(this._port, () => {

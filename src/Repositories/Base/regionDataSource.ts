@@ -1,0 +1,7 @@
+import { CountryEntitie, DepartamentEntitie } from "../Entities/region-entitie";
+
+export abstract class RegionDataSource {
+
+    abstract getCountry(): Promise<CountryEntitie[]>
+    abstract getDepartament(countryId: number): Promise<DepartamentEntitie[]>
+}
