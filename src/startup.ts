@@ -8,9 +8,9 @@ const startup = async () => {
     await MongoDbContext.connect(envs.MONGO_CONNECTION)
     SequelizeDbContext.authenticate()
 
-    CountryModel.sync({ alter: true })
-    DepartamentModel.sync({ alter: true })
-    TipoClientModel.sync({ alter: true })
+    // CountryModel.sync({ alter: true })
+    // DepartamentModel.sync({ alter: true })
+    // TipoClientModel.sync({ alter: true })
     
     new Program({ port: envs.PORT, router: AppRoute.routes }).start()
 }
